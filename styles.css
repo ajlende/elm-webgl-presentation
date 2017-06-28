@@ -1,0 +1,11 @@
+@import url("reveal.js/css/reveal.css");
+@import url("reveal.js/css/theme/moon.css");
+@import url("reveal.js/plugin/highlight/styles/solarized-light.css");
+
+.demo {
+  display: inline-block;
+  position: relative;
+  margin: 20px auto;
+  background-color: rgb(45, 45, 45);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+}

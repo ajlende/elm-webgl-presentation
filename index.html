@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebGL in Elm • Alex Lende</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="reveal.js/js/print.js"></script>
+</head>
+
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <div id="elm-title"></div>
+            </section>
+            <section>
+                <section>
+                    <h2>Simple Cube</h2>
+                </section>
+                <section>
+                    <h2>Simple Cube</h2>
+                    <pre><code class="elm">
+                        -- TODO
+                    </code></pre>
+                </section>
+                <section data-markdown>
+                    <textarea data-template>
+                        ## MD
+                    </textarea>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
+
+    <script src="elm.js"></script>
+
+    <script>
+    const addSection = (name, id) => {
+        const newSection = document.createElement('section')
+
+        const heading = document.createElement('h2')
+        heading.innerHTML = name
+
+        const app = document.createElement('div')
+        app.id = id
+
+        const lastSlide = document.querySelector('.slides:last-of-type')
+        lastSlide.appendChild(newSection)
+
+        newSection.appendChild(heading)
+        newSection.appendChild(app)
+
+        return newSection
+    }
+
+    const initElm = () => {
+        window.ElmApps = {};
+        Object.keys(Elm).forEach((key) => {
+            const id = `elm-${key.toLowerCase()}`
+            const app = document.getElementById(id) || addSection(key, id)
+            Elm[key].embed(app)
+        })
+    }
+
+    const initHighlight = () => hljs.initHighlightingOnLoad()
+
+    Reveal.initialize({
+        dependencies: [
+            { src: 'reveal.js/plugin/markdown/marked.js' },
+            { src: 'reveal.js/plugin/markdown/markdown.js', callback: initElm },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true },
+            { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: initHighlight },
+        ],
+    })
+</script>
+
+</body>
+
+</html>

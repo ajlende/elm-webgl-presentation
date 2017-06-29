@@ -1,42 +1,45 @@
 (function() {
-    'use strict';
+    const addSection = (name, id) => {
+        const newSection = document.createElement('section')
 
-    // Elm initialization has to be done after the markdown to allow it to find divs that might be in markdown
+        const heading = document.createElement('h2')
+        heading.innerHTML = name
+
+        const app = document.createElement('div')
+        app.id = id
+
+        const lastSlide = document.querySelector('.slides:last-of-type')
+        lastSlide.appendChild(newSection)
+
+        newSection.appendChild(heading)
+        newSection.appendChild(app)
+
+        return newSection
+    }
+
     const initElm = () => {
-        const newSlide = (app, id) => {
-            const node = document.createElement('div')
-            node.id = id
-
-            const lastSlides = document.querySelector('.slides:last-of-type')
-
-            const newSection = document.createElement('section')
-            lastSlides.appendChild(newSection)
-
-            const heading = document.createElement('h2')
-            heading.innerHTML = app
-
-            newSection.appendChild(heading)
-            newSection.appendChild(node)
-
-            return node;
-        }
-
-        Object.keys(Elm).forEach((app) => {
-            const id = `elm-${app.toLowerCase()}`
-            const node = document.getElementById(id) || newSlide(app, id)
-            Elm[app].embed(node)
+        window.ElmApps = {};
+        Object.keys(Elm).forEach((key) => {
+            const id = `elm-${key.toLowerCase()}`
+            const app = document.getElementById(id) || addSection(key, id)
+            Elm[key].embed(app)
         })
     }
 
     const initHighlight = () => hljs.initHighlightingOnLoad()
 
-    Reveal.initialize(
-        { dependencies:
-            [ { src: 'reveal.js/plugin/markdown/marked.js' }
-            , { src: 'reveal.js/plugin/markdown/markdown.js', callback: initElm }
-            , { src: 'reveal.js/plugin/notes/notes.js', async: true }
-            , { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: initHighlight }
-            ]
-        }
-    )
+    Reveal.initialize({
+        math: {
+            // See http://docs.mathjax.org/en/latest/config-files.html
+            mathjax: 'reveal.js/lib/js/MathJax/MathJax.js',
+            config: 'TeX-AMS_HTML-full',
+        },
+        dependencies: [
+            { src: 'reveal.js/plugin/math/math.js', async: true },
+            { src: 'reveal.js/plugin/markdown/marked.js' },
+            { src: 'reveal.js/plugin/markdown/markdown.js', callback: initElm },
+            { src: 'reveal.js/plugin/notes/notes.js', async: true },
+            { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: initHighlight },
+        ],
+    })
 }());

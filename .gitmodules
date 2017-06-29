@@ -1,0 +1,3 @@
+[submodule "reveal.js/lib/js/MathJax"]
+	path = reveal.js/lib/js/MathJax
+	url = https://github.com/mathjax/MathJax

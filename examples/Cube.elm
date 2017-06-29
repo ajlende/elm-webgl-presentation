@@ -1,4 +1,4 @@
-module Basic exposing (main)
+module Cube exposing (main)
 
 {-
    Rotating cube with colored sides.

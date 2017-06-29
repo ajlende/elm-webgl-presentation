@@ -198,33 +198,60 @@
                 </section>
                 <section>
                     <h3>Vectors</h3>
-                    <div class="group">
+                    <div class="group" style="font-size: 0.5em">
                         <img class="stretch" src="images/vectors.png" />
                         <script type="math/tex;">
                         \bar{v} = \begin{pmatrix} \color{pink}x \\ \color{lightgreen}y \\ \color{lightblue}z \\ \color{violet}1 \end{pmatrix}
                         </script>
                     </div>
+                    <pre><code class="elm">
+    type Vec4
+     -- Four dimensional vector type
+
+    vec4 : Float -> Float -> Float -> Float -> Vec4
+     -- Creates a new 4-element vector with the given x, y, z, and w values.
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Matrices</h3>
-                    <div class="group">
+                    <div class="group" style="font-size: 0.5em">
                         <script type="math/tex;">
                         S = \begin{bmatrix} \color{pink}{S_1} & \color{pink}0 & \color{pink}0 & \color{pink}0 \\ \color{lightgreen}0 & \color{lightgreen}{S_2} & \color{lightgreen}0 & \color{lightgreen}0 \\ \color{lightblue}0 & \color{lightblue}0 & \color{lightblue}{S_3} & \color{lightblue}0 \\ \color{violet}0 & \color{violet}0 & \color{violet}0 & \color{violet}1 \end{bmatrix}
                         </script>
                     </div>
+                    <pre><code class="elm">
+    type Mat4
+    -- 4x4 matrix type
+
+    makeFromList : List Float -> Maybe Mat4
+    -- Creates a matrix from a list of elements. Returns Nothing if the length of the list is not exactly 16 (4x4).
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Transformations</h3>
-                    <div class="group">
+                    <div class="group" style="font-size: 0.5em">
                         <script type="math/tex;">
                         \begin{bmatrix} \color{pink}{S_1} & \color{pink}0 & \color{pink}0 & \color{pink}0 \\ \color{lightgreen}0 & \color{lightgreen}{S_2} & \color{lightgreen}0 & \color{lightgreen}0 \\ \color{lightblue}0 & \color{lightblue}0 & \color{lightblue}{S_3} & \color{lightblue}0 \\ \color{violet}0 & \color{violet}0 & \color{violet}0 & \color{violet}1 \end{bmatrix}
                         \cdot \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix}
                         = \begin{pmatrix} \color{pink}{S_1} \cdot x \\ \color{lightgreen}{S_2} \cdot y \\ \color{lightblue}{S_3} \cdot z \\ 1 \end{pmatrix}
                         </script>
                     </div>
-                    <div class="fragment fade-in">
-                        <a href="https://learnopengl.com/#!Getting-started/Transformations">learnopengl.com/#!Getting-started/Transformations</a>
-                    </div>
+                    <pre><code class="elm">
+    makePerspective : Float -> Float -> Float -> Float -> Mat4
+    -- Creates a matrix for a perspective projection with fov-y, aspect, z-near, z-far
+
+    makeRotate : Float -> Vec3 -> Mat4
+    -- Creates a matrix for rotation in radians about the 3-element vector axis.
+
+    makeScale : Vec3 -> Mat4
+    -- Creates a matrix for scaling each of the x, y, and z axes.
+
+    makeTranslate : Vec3 -> Mat4
+    -- Creates a matrix for translating each of the x, y, and z axes.
+                    </code></pre>
+                    <aside class="notes">
+                        Remember the right-hand rule
+                    </aside>
                 </section>
                 <section>
                     <h3>Coordinate Systems</h3>
@@ -400,9 +427,9 @@
                 </section>
                 <section>
                     <h3>Compiler</h3>
-                    <p>Uses <code>Language.GLSL.Parser</code> to parse and compile glsl shaders from Elm source code</p>
+                    <p>Uses Haskell's <code>Language.GLSL.Parser</code> to parse and compile glsl shaders from Elm source code for type checking</p>
                     <pre><code class="elm">
-    fragmentShader : Shader {} {} {}
+    fragmentShader : Shader Attributes Uniforms Varyings
     fragmentShader =
         [glsl|
 

@@ -1,4 +1,4 @@
-(function() {
+(function () {
     const addSection = (name, id) => {
         const newSection = document.createElement('section')
 
@@ -32,7 +32,7 @@
         math: {
             // See http://docs.mathjax.org/en/latest/config-files.html
             mathjax: 'reveal.js/lib/js/MathJax/MathJax.js',
-            config: 'TeX-AMS_HTML-full',
+            config: 'TeX-AMS_SVG-full',
         },
         dependencies: [
             { src: 'reveal.js/plugin/math/math.js', async: true },

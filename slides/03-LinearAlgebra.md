@@ -14,7 +14,7 @@ Note:
     ![](images/vectors.png)
     </figure>
     <figure>
-    \\[ \bar{v} = \begin{pmatrix} \color{pink}x \\\\ \color{lightgreen}y \\\\ \color{lightblue}z \\\\ \color{violet}1 \end{pmatrix} \\]
+    \\[ \bar{v} = \begin{pmatrix} \color{red}x \\\\ \color{green}y \\\\ \color{blue}z \\\\ \color{purple}1 \end{pmatrix} \\]
     </figure>
 </div>
 
@@ -35,7 +35,7 @@ Note:
 
 <div class="group">
     <figure>
-    \\[ S = \begin{bmatrix} \color{pink}{S_1} & \color{pink}0 & \color{pink}0 & \color{pink}0 \\\\ \color{lightgreen}0 & \color{lightgreen}{S_2} & \color{lightgreen}0 & \color{lightgreen}0 \\\\ \color{lightblue}0 & \color{lightblue}0 & \color{lightblue}{S_3} & \color{lightblue}0 \\\\ \color{violet}0 & \color{violet}0 & \color{violet}0 & \color{violet}1 \end{bmatrix} \\]
+    \\[ S = \begin{bmatrix} \color{red}{S_1} & \color{red}0 & \color{red}0 & \color{red}0 \\\\ \color{green}0 & \color{green}{S_2} & \color{green}0 & \color{green}0 \\\\ \color{blue}0 & \color{blue}0 & \color{blue}{S_3} & \color{blue}0 \\\\ \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1 \end{bmatrix} \\]
     </figure>
 </div>
 
@@ -56,9 +56,23 @@ Note:
 
 <div class="group">
     <figure>
-    \\[\begin{bmatrix} \color{pink}{S_1} & \color{pink}0 & \color{pink}0 & \color{pink}0 \\\\ \color{lightgreen}0 & \color{lightgreen}{S_2} & \color{lightgreen}0 & \color{lightgreen}0 \\\\ \color{lightblue}0 & \color{lightblue}0 & \color{lightblue}{S_3} & \color{lightblue}0 \\\\ \color{violet}0 & \color{violet}0 & \color{violet}0 & \color{violet}1 \end{bmatrix}
-    \cdot \begin{pmatrix} x \\\\ y \\\\ z \\\\ 1 \end{pmatrix}
-    = \begin{pmatrix} \color{pink}{S_1} \cdot x \\\\ \color{lightgreen}{S_2} \cdot y \\\\ \color{lightblue}{S_3} \cdot z \\\\ 1 \end{pmatrix}\\]
+    \\[
+        \begin{bmatrix}
+            \color{red}{S_1} & \color{red}0 & \color{red}0 & \color{red}0 \\\\
+            \color{green}0 & \color{green}{S_2} & \color{green}0 & \color{green}0 \\\\
+            \color{blue}0 & \color{blue}0 & \color{blue}{S_3} & \color{blue}0 \\\\
+            \color{purple}0 & \color{purple}0 & \color{purple}0 & \color{purple}1
+        \end{bmatrix}
+        \cdot
+        \begin{pmatrix} x \\\\ y \\\\ z \\\\ 1 \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \color{red}{S_1} \cdot x \\\\
+            \color{green}{S_2} \cdot y \\\\
+            \color{blue}{S_3} \cdot z \\\\
+            1
+        \end{pmatrix}
+    \\]
     </figure>
 </div>
 

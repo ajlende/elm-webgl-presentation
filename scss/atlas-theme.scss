@@ -1,22 +1,12 @@
-/**
- * Atlas theme for reveal.js.
- *
- * Copyright (C) 2018 Alex Lende, https://ajlende.com
- */
+ @import "variables.scss";
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 
 body {
-    $gradient-background: gradient($white-ter);
-    $solid-background: $white-ter;
-
-    @include gradient-animation($gradient-background, $solid-background, 1s linear);
-}
-
-html.gradient body:before {
-    opacity: 1;
+    background-image: gradient($white-ter);
+    background-color: $white-ter;
 }
 
 .reveal {

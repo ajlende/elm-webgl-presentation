@@ -1,0 +1,75 @@
+// Colors
+// NMS Theme http://github.com/ajlende/nms-syntax
+$orange: hsl(25, 85%, 61%);
+$yellow: hsl(47, 100%, 55%);
+$green: hsl(108, 39%, 59%);
+$turquoise: hsl(179, 59%, 67%);
+$blue: hsl(179, 100%, 29%);
+$purple: hsl(288, 22%, 54%);
+$red: hsl(355, 100%, 68%);
+
+$black: hsl(200, 98%, 4%);
+$black-bis: hsl(197, 92%, 10%);
+$black-ter: hsl(194, 82%, 15%);
+
+$grey-darker: hsl(191, 62%, 21%);
+$grey-dark: hsl(188, 42%, 29%);
+$grey: hsl(185, 22%, 48%);
+$grey-light: hsl(182, 18%, 71%);
+$grey-lighter: hsl(179, 17%, 86%);
+
+$white-ter: hsl(60, 17%, 92%);
+$white-bis: hsl(60, 17%, 96%);
+$white: hsl(60, 17%, 100%);
+
+// Primary colors
+$primary: $red;
+
+$info: $blue;
+$success: $green;
+$warning: $yellow;
+$danger: $orange;
+
+$light: $white-ter;
+$dark: $black-ter;
+
+// Gradients Mixins and Functions
+@function gradient($color) {
+    $gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%);
+    $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%);
+
+    @return linear-gradient(141deg, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%);
+}
+
+@mixin gradient-animation($start, $end, $transTime) {
+    background: $end;
+    position: relative;
+    z-index: 100;
+    opacity: 1;
+
+    &:before {
+        background: $start;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -100;
+        transition: opacity $transTime;
+    }
+}
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+$family-title: "Raleway", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic");
+
+$family-body: "Open Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
+// Typography
+$family-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;

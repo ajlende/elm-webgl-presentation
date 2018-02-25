@@ -4,7 +4,7 @@
 
 [ajlende.com/elm-webgl-presentation](http://ajlende.com/elm-webgl-presentation)
 
-Note:
+Notes:
 
 Iowa State University - Bachelor Software Engineering 2016
 

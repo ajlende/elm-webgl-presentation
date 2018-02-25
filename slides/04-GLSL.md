@@ -1,6 +1,6 @@
 ## OpenGL Shading Language
 
-Note:
+Notes:
 
 
 ---
@@ -18,7 +18,7 @@ void main() {
 }
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -36,7 +36,7 @@ void main() {
 }
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -102,7 +102,7 @@ Note:
     </tr>
 </table>
 
-Note:
+Notes:
 
 
 ---
@@ -134,7 +134,7 @@ Note:
     </tr>
 </table>
 
-Note:
+Notes:
 
 
 ---
@@ -162,7 +162,7 @@ Note:
     </tr>
 </table>
 
-Note:
+Notes:
 
 
 ---
@@ -191,5 +191,5 @@ Note:
     </tr>
 </table>
 
-Note:
+Notes:
 

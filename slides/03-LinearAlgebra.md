@@ -2,7 +2,7 @@
 
 [elm-community/linear-algebra](http://package.elm-lang.org/packages/elm-community/linear-algebra/latest)
 
-Note:
+Notes:
 
 
 ---
@@ -26,7 +26,7 @@ vec4 : Float -> Float -> Float -> Float -> Vec4
 -- Creates a new 4-element vector with the given x, y, z, and w values.
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -47,7 +47,7 @@ makeFromList : List Float -> Maybe Mat4
 -- Creates a matrix from a list of elements. Returns Nothing if the length of the list is not exactly 16 (4x4).
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -90,7 +90,7 @@ makeTranslate : Vec3 -> Mat4
 -- Creates a matrix for translating each of the x, y, and z axes.
 ```
 
-Note:
+Notes:
 
 Remember the right-hand rule
 
@@ -103,5 +103,5 @@ Remember the right-hand rule
 ![](images/coordinatesystems.png)
 </figure>
 
-Note:
+Notes:
 

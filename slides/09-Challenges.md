@@ -1,6 +1,6 @@
 ## Challenges
 
-Note:
+Notes:
 
 
 ---
@@ -12,7 +12,7 @@ Note:
 - Rotate the square about the origin
 - Have the square follow your cursor
 
-Note:
+Notes:
 
 
 ---
@@ -25,7 +25,7 @@ Note:
 - Implement Phong Shading for the sphere
 - Map an earth texture to the sphere to create a globe
 
-Note:
+Notes:
 
 
 ---
@@ -36,7 +36,7 @@ Note:
 - Add crouch with Shift
 - Add rotation with the mouse
 
-Note:
+Notes:
 
 
 ---
@@ -46,5 +46,5 @@ Note:
 - Add a bump map to the texture
 - Create more Thwomps and space them throughout the scene
 
-Note:
+Notes:
 

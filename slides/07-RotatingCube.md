@@ -2,7 +2,7 @@
 
 [View on Ellie](https://ellie-app.com/7STFkQjmNa1/1)
 
-Note:
+Notes:
 
 
 ---
@@ -20,7 +20,7 @@ main =
         }
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -40,7 +40,7 @@ view theta =
         ]
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -111,7 +111,7 @@ face rawColor a b c d =
         ]
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -138,7 +138,7 @@ uniforms theta =
     }
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -165,7 +165,7 @@ vertexShader =
     |]
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -188,12 +188,12 @@ fragmentShader =
     |]
 ```
 
-Note:
+Notes:
 
 
 ---
 
 <div class="demo" id="elm-cube"></div>
 
-Note:
+Notes:
 

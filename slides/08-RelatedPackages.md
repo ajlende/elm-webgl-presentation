@@ -1,6 +1,6 @@
 ## Work in Progress
 
-Note:
+Notes:
 
 
 ---
@@ -15,5 +15,5 @@ Note:
 
 [opensolid/geometry](http://package.elm-lang.org/packages/opensolid/geometry/latest)
 
-Note:
+Notes:
 

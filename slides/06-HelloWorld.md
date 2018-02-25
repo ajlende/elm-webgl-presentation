@@ -2,7 +2,7 @@
 
 [View on Ellie](https://ellie-app.com/7Y9SF6KN6a1/0)
 
-Note:
+Notes:
 
 
 ---
@@ -24,7 +24,7 @@ main =
         }
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -44,7 +44,7 @@ view _ =
         ]
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -67,7 +67,7 @@ mesh =
         ]
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -91,7 +91,7 @@ vertexShader =
     |]
 ```
 
-Note:
+Notes:
 
 
 ---
@@ -113,7 +113,7 @@ fragmentShader =
     |]
 ```
 
-Note:
+Notes:
 
 
 ---

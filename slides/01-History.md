@@ -1,6 +1,6 @@
 ## A Brief History of 3D Computer Graphics
 
-Note:
+Notes:
 
 To give context.
 
@@ -18,7 +18,7 @@ It's interesting.
 ![](images/oscilloscope.jpg)
 </figure>
 
-Note:
+Notes:
 
 Electron beam on film
 
@@ -32,7 +32,7 @@ Electron beam on film
 ![](images/spacewar.jpg)
 </figure>
 
-Note:
+Notes:
 
 Used oscilloscope for first game
 
@@ -46,7 +46,7 @@ Used oscilloscope for first game
 ![](images/culling.gif)
 </figure>
 
-Note:
+Notes:
 
 Visibility Problem
 - Roberts (1963), Appel (1967) - hidden-line algorithms
@@ -65,7 +65,7 @@ Visibility Problem
 ![](images/gouraudphong.jpg)
 </figure>
 
-Note:
+Notes:
 
 University of Utah was the place to be for 3D Graphics innovations
 - Gouraud (1971) - diffuse lighting
@@ -83,7 +83,7 @@ University of Utah was the place to be for 3D Graphics innovations
 ![](images/textures.jpg)
 </figure>
 
-Note:
+Notes:
 
 Catmull later was a founder of Pixar
 
@@ -101,7 +101,7 @@ UV coordinates
 ![](images/antialiasing.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -113,7 +113,7 @@ Note:
 ![](images/raytracing.jpg)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -125,7 +125,7 @@ Note:
 ![](images/cooktorrance.jpg)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -137,7 +137,7 @@ Note:
 ![](images/perlin.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -149,7 +149,7 @@ Note:
 ![](images/radiosity.jpg)
 </figure>
 
-Note:
+Notes:
 
 Global illumination model
 
@@ -165,7 +165,7 @@ Notice the object colors affecting areas around them
 ![](images/marchingcubes.png)
 </figure>
 
-Note:
+Notes:
 
 Visualize data from CT and MRI devices
 
@@ -181,7 +181,7 @@ Patent expired in 2005
 ![](images/renderman.jpg)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -193,7 +193,7 @@ Note:
 ![](images/opengl.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -205,7 +205,7 @@ Note:
 ![](images/directx.jpg)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -217,7 +217,7 @@ Note:
 ![](images/webgl.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -229,4 +229,4 @@ Note:
 ![](images/webvr.png)
 </figure>
 
-Note:
+Notes:

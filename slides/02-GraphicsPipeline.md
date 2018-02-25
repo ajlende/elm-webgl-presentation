@@ -1,6 +1,6 @@
 ## Graphics Pipeline
 
-Note:
+Notes:
 
 
 ---
@@ -11,7 +11,7 @@ Note:
 ![](images/elmpipeline.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -20,7 +20,7 @@ Note:
 ![](images/glpipeline1.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -29,7 +29,7 @@ Note:
 ![](images/glpipeline2.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -38,7 +38,7 @@ Note:
 ![](images/glpipeline3.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -47,7 +47,7 @@ Note:
 ![](images/glpipeline4.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -56,7 +56,7 @@ Note:
 ![](images/glpipeline5.png)
 </figure>
 
-Note:
+Notes:
 
 
 ---
@@ -65,5 +65,5 @@ Note:
 ![](images/glpipeline6.png)
 </figure>
 
-Note:
+Notes:
 

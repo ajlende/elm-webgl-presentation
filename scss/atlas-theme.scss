@@ -1,4 +1,4 @@
- @import "variables.scss";
+@import "variables.scss";
 
 /*********************************************
  * GLOBAL STYLES
@@ -9,13 +9,6 @@ body {
     background-color: $white-ter;
 }
 
-.reveal {
-    font-family: $family-body;
-    font-size: 40px;
-    font-weight: normal;
-    color: $dark;
-}
-
 ::selection,
 ::-moz-selection {
     color: $dark;
@@ -23,313 +16,353 @@ body {
     text-shadow: none;
 }
 
-.reveal .slides > section,
-.reveal .slides > section > section {
-    line-height: 1.3;
-    font-weight: inherit;
-}
-
-/*********************************************
- * HEADERS
- *********************************************/
-.reveal h1,
-.reveal h2,
-.reveal h3,
-.reveal h4,
-.reveal h5,
-.reveal h6 {
-    margin: 0 0 20px 0;
-    font-family: $family-title;
+.reveal {
+    font-family: $family-body;
+    font-size: 40px;
     font-weight: normal;
-    line-height: 1.2;
-    text-transform: none;
-    text-shadow: none;
-    word-wrap: break-word;
-}
+    color: $dark;
 
-.reveal h1 {
-    font-size: 3.77em;
-}
+    .demo {
+        max-width: 90%;
+        position: relative;
+        margin: 20px auto;
+    }
 
-.reveal h2 {
-    font-size: 2.11em;
-}
+    .group > * {
+        display: inline-block !important;
+        vertical-align: middle !important;
+    }
 
-.reveal h3 {
-    font-size: 1.55em;
-}
+    .slides > section,
+    .slides > section > section {
+        line-height: 1.3;
+        font-weight: inherit;
+    }
 
-.reveal h4 {
-    font-size: 1em;
-}
+    section > * {
+        margin-bottom: 20px;
+    }
 
-.reveal h1 {
-    text-shadow: none;
-}
+    span.hl {
+        color: $red;
+    }
 
-/*********************************************
- * OTHER
- *********************************************/
-.reveal p {
-    margin: 20px 0;
-    line-height: 1.3;
-}
+    /*********************************************
+     * HEADERS
+     *********************************************/
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0 0 20px 0;
+        font-family: $family-title;
+        font-weight: normal;
+        line-height: 1.2;
+        text-transform: none;
+        text-shadow: none;
+        word-wrap: break-word;
+    }
 
-/* Ensure certain elements are never larger than the slide itself */
-.reveal img,
-.reveal video,
-.reveal iframe {
-    max-width: 95%;
-    max-height: 95%;
-}
+    h1 {
+        font-size: 3.77em;
+    }
 
-.reveal strong,
-.reveal b {
-    font-weight: bold;
-}
+    h2 {
+        font-size: 2.11em;
+    }
 
-.reveal em {
-    font-style: italic;
-}
+    h3 {
+        font-size: 1.55em;
+    }
 
-.reveal ol,
-.reveal dl,
-.reveal ul {
-    display: inline-block;
-    text-align: left;
-    margin: 0 0 0 1em;
-}
+    h4 {
+        font-size: 1em;
+    }
 
-.reveal ol {
-    list-style-type: decimal;
-}
+    h1 {
+        text-shadow: none;
+    }
 
-.reveal ul {
-    list-style-type: disc;
-}
+    /*********************************************
+     * OTHER
+     *********************************************/
+    p {
+        margin: 20px 0;
+        line-height: 1.3;
+    }
 
-.reveal ul ul {
-    list-style-type: square;
-}
+    /* Ensure certain elements are never larger than the slide itself */
+    img,
+    video,
+    iframe {
+        max-width: 95%;
+        max-height: 95%;
+    }
 
-.reveal ul ul ul {
-    list-style-type: circle;
-}
+    strong,
+    b {
+        font-weight: bold;
+    }
 
-.reveal ul ul,
-.reveal ul ol,
-.reveal ol ol,
-.reveal ol ul {
-    display: block;
-    margin-left: 40px;
-}
+    em {
+        font-style: italic;
+    }
 
-.reveal dt {
-    font-weight: bold;
-}
+    ol,
+    dl,
+    ul {
+        display: inline-block;
+        text-align: left;
+        margin: 0 0 0 1em;
+    }
 
-.reveal dd {
-    margin-left: 40px;
-}
+    ol {
+        list-style-type: decimal;
+    }
 
-.reveal q,
-.reveal blockquote {
-    quotes: none;
-}
+    ul {
+        list-style-type: disc;
+    }
 
-.reveal blockquote {
-    display: block;
-    position: relative;
-    width: 70%;
-    margin: 20px auto;
-    padding: 5px;
-    font-style: italic;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-}
+    ul ul {
+        list-style-type: square;
+    }
 
-.reveal blockquote p:first-child,
-.reveal blockquote p:last-child {
-    display: inline-block;
-}
+    ul ul ul {
+        list-style-type: circle;
+    }
 
-.reveal q {
-    font-style: italic;
-}
+    ul ul,
+    ul ol,
+    ol ol,
+    ol ul {
+        display: block;
+        margin-left: 40px;
+    }
 
-.reveal pre {
-    display: block;
-    position: relative;
-    margin-bottom: 20px;
-    text-align: left;
-    font-size: 0.55em;
-    font-family: $family-monospace;
-    line-height: 1.2em;
-    word-wrap: break-word;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-}
+    dt {
+        font-weight: bold;
+    }
 
-.reveal code {
-    font-family: monospace;
-}
+    dd {
+        margin-left: 40px;
+    }
 
-.reveal pre code {
-    display: block;
-    padding: 5px;
-    overflow: auto;
-    max-height: 400px;
-    word-wrap: normal;
-}
+    q,
+    blockquote {
+        quotes: none;
+    }
 
-.reveal table {
-    margin: auto;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
+    blockquote {
+        display: block;
+        position: relative;
+        width: 70%;
+        margin: 20px auto;
+        padding: 5px;
+        font-style: italic;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    }
 
-.reveal table th {
-    font-weight: bold;
-}
+    blockquote p:first-child,
+    blockquote p:last-child {
+        display: inline-block;
+    }
 
-.reveal table th,
-.reveal table td {
-    text-align: left;
-    padding: 0.2em 0.5em 0.2em 0.5em;
-    border-bottom: 1px solid;
-}
+    q {
+        font-style: italic;
+    }
 
-.reveal table th[align="center"],
-.reveal table td[align="center"] {
-    text-align: center;
-}
+    pre {
+        display: block;
+        position: relative;
+        margin-bottom: 20px;
+        text-align: left;
+        font-size: 0.55em;
+        font-family: $family-monospace;
+        line-height: 1.2em;
+        word-wrap: break-word;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+    }
 
-.reveal table th[align="right"],
-.reveal table td[align="right"] {
-    text-align: right;
-}
+    code {
+        font-family: monospace;
+    }
 
-.reveal table tbody tr:last-child th,
-.reveal table tbody tr:last-child td {
-    border-bottom: none;
-}
+    pre code {
+        display: block;
+        padding: 1rem;
+        overflow: auto;
+        max-height: 400px;
+        word-wrap: normal;
+    }
 
-.reveal sup {
-    vertical-align: super;
-}
+    table {
+        margin: auto;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 0.5em;
+    }
 
-.reveal sub {
-    vertical-align: sub;
-}
+    table th {
+        font-weight: bold;
+    }
 
-.reveal small {
-    display: inline-block;
-    font-size: 0.6em;
-    line-height: 1.2em;
-    vertical-align: top;
-}
+    table th,
+    table td {
+        text-align: left;
+        padding: 0.2em 0.5em 0.2em 0.5em;
+        border: none;
+    }
 
-.reveal small * {
-    vertical-align: top;
-}
+    table th[align="center"],
+    table td[align="center"] {
+        text-align: center;
+    }
 
-/*********************************************
- * LINKS
- *********************************************/
-.reveal a {
-    color: $primary;
-    text-decoration: none;
-    -webkit-transition: color .15s ease;
-    -moz-transition: color .15s ease;
-    transition: color .15s ease;
-}
+    table th[align="right"],
+    table td[align="right"] {
+        text-align: right;
+    }
 
-.reveal a:hover {
-    color: lighten($primary, 5%);
-    text-shadow: none;
-    border: none;
-}
+    table tbody tr:last-child th,
+    table tbody tr:last-child td {
+        border-bottom: none;
+    }
 
-.reveal .roll span:after {
-    color: $white;
-    background: $primary;
-}
+    sup {
+        vertical-align: super;
+    }
 
-/*********************************************
- * IMAGES
- *********************************************/
-.reveal section img {
-    margin: 15px 0px;
-    background: rgba(255, 255, 255, 0.12);
-    border: 4px solid $light;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-}
+    sub {
+        vertical-align: sub;
+    }
 
-.reveal section img.plain {
-    border: 0;
-    box-shadow: none;
-}
+    small {
+        display: inline-block;
+        font-size: 0.6em;
+        line-height: 1.2em;
+        vertical-align: top;
+    }
 
-.reveal a img {
-    -webkit-transition: all .15s linear;
-    -moz-transition: all .15s linear;
-    transition: all .15s linear;
-}
+    small * {
+        vertical-align: top;
+    }
 
-.reveal a:hover img {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: $primary;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
-}
+    /*********************************************
+     * LINKS
+     *********************************************/
+    a {
+        color: $primary;
+        text-decoration: none;
+        -webkit-transition: color .15s ease;
+        -moz-transition: color .15s ease;
+        transition: color .15s ease;
+    }
 
-/*********************************************
- * NAVIGATION CONTROLS
- *********************************************/
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-    border-right-color: $primary;
-}
+    a:hover {
+        color: lighten($primary, 5%);
+        text-shadow: none;
+        border: none;
+    }
 
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-    border-left-color: $primary;
-}
+    .roll span:after {
+        color: $white;
+        background: $primary;
+    }
 
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-    border-bottom-color: $primary;
-}
+    /*********************************************
+     * IMAGES
+     *********************************************/
+    img {
+        margin: 15px 0px;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+    }
 
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-    border-top-color: $primary;
-}
+    a img {
+        -webkit-transition: all .15s linear;
+        -moz-transition: all .15s linear;
+        transition: all .15s linear;
+    }
 
-.reveal .controls .navigate-left.enabled:hover {
-    border-right-color: lighten($primary, 5%);
-}
+    a:hover img {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: $primary;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+    }
 
-.reveal .controls .navigate-right.enabled:hover {
-    border-left-color: lighten($primary, 5%);
-}
+    .stretch img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
-.reveal .controls .navigate-up.enabled:hover {
-    border-bottom-color: lighten($primary, 5%);
-}
+    .box img {
+        border: 4px solid $light;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        filter: none;
+    }
 
-.reveal .controls .navigate-down.enabled:hover {
-    border-top-color: lighten($primary, 5%);
-}
+    .plain img {
+        filter: none;
+    }
 
-/*********************************************
- * PROGRESS BAR
- *********************************************/
-.reveal .progress {
-    background: rgba(0, 0, 0, 0.2);
-}
+    /*********************************************
+     * NAVIGATION CONTROLS
+     *********************************************/
+    .controls {
+        .navigate-left,
+        .navigate-left.enabled {
+            border-right-color: $primary;
+        }
 
-.reveal .progress span {
-    background: $primary;
-    -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
-    -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
-    transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+        .navigate-right,
+        .navigate-right.enabled {
+            border-left-color: $primary;
+        }
+
+        .navigate-up,
+        .navigate-up.enabled {
+            border-bottom-color: $primary;
+        }
+
+        .navigate-down,
+        .navigate-down.enabled {
+            border-top-color: $primary;
+        }
+
+        .navigate-left.enabled:hover {
+            border-right-color: lighten($primary, 5%);
+        }
+
+        .navigate-right.enabled:hover {
+            border-left-color: lighten($primary, 5%);
+        }
+
+        .navigate-up.enabled:hover {
+            border-bottom-color: lighten($primary, 5%);
+        }
+
+        .navigate-down.enabled:hover {
+            border-top-color: lighten($primary, 5%);
+        }
+    }
+
+    /*********************************************
+     * PROGRESS BAR
+     *********************************************/
+    .progress {
+        background: rgba(0, 0, 0, 0.2);
+
+        span {
+            background: $primary;
+            -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+            -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+            transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+        }
+    }
 }

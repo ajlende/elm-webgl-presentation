@@ -99,7 +99,7 @@ Remember the right-hand rule
 
 ### Coordinate Systems
 
-<figure class="stretch inset lighten">
+<figure class="stretch">
 ![](images/coordinatesystems.png)
 </figure>
 

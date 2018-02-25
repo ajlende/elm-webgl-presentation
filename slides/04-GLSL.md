@@ -7,7 +7,7 @@ Note:
 
 ### Vertex Shader
 
-<figure class="inset lighten">
+<figure>
 ![](images/glpipelinetriangles.png)
 </figure>
 
@@ -25,7 +25,7 @@ Note:
 
 ### Fragment Shader
 
-<figure class="inset lighten">
+<figure>
 ![](images/glpipelinerasterization.png)
 </figure>
 

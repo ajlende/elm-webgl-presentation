@@ -11,6 +11,12 @@
   - [live-server](https://github.com/tapio/live-server) or
   - `python -m SimpleHTTPServer` (Python 2) or `python -m http.server` (Python 3) will even work
 
+## Get MathJax
+
+```sh
+git submodule init && git submodule update
+```
+
 ## Build Elm Examples
 
 ```sh

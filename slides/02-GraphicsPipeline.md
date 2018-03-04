@@ -5,10 +5,8 @@ Notes:
 
 ---
 
-### Overview
-
 <figure class="stretch">
-![](images/elmpipeline.png)
+![](images/glpipeline.png)
 </figure>
 
 Notes:
@@ -63,6 +61,15 @@ Notes:
 
 <figure class="stretch">
 ![](images/glpipeline6.png)
+</figure>
+
+Notes:
+
+
+---
+
+<figure class="stretch">
+![](images/glpipeline.png)
 </figure>
 
 Notes:

@@ -1,5 +1,7 @@
 ## Graphics Pipeline
 
+[Detailed Map](http://www.seas.upenn.edu/~pcozzi/OpenGLInsights/OpenGLES30PipelineMap.pdf)
+
 Notes:
 
 

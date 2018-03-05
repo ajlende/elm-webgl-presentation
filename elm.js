@@ -11758,7 +11758,7 @@ var _elm_community$webgl$Native_WebGL = function () {
     LOG('Drawing');
 
     function drawEntity(entity) {
-      if (listLength(entity.buffer._0) === 0) {
+      if (entity.buffer._0.ctor === '[]') {
         return;
       }
 
@@ -13081,6 +13081,48 @@ var _ajlende$elm_webgl_slides$Cube$main = _elm_lang$html$Html$program(
 			})
 	})();
 
+var _ajlende$elm_webgl_slides$Setup$mesh = _elm_community$webgl$WebGL$triangles(
+	{
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple3',
+			_0: {
+				position: A2(_elm_community$linear_algebra$Math_Vector2$vec2, 0, 0)
+			},
+			_1: {
+				position: A2(_elm_community$linear_algebra$Math_Vector2$vec2, 0, 1)
+			},
+			_2: {
+				position: A2(_elm_community$linear_algebra$Math_Vector2$vec2, 1, 0)
+			}
+		},
+		_1: {ctor: '[]'}
+	});
+var _ajlende$elm_webgl_slides$Setup$fragmentShader = {'src': '\n\n        void main () {\n            gl_FragColor = vec4(0.027, 0.216, 0.275, 1.0);\n        }\n\n    '};
+var _ajlende$elm_webgl_slides$Setup$vertexShader = {'src': '\n\n        attribute vec2 position;\n\n        void main () {\n            gl_Position = vec4(position, 0.0, 1.0);\n        }\n\n    '};
+var _ajlende$elm_webgl_slides$Setup$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
+	A2(
+		_elm_community$webgl$WebGL$toHtml,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$width(400),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$height(400),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A4(
+				_elm_community$webgl$WebGL$entity,
+				_ajlende$elm_webgl_slides$Setup$vertexShader,
+				_ajlende$elm_webgl_slides$Setup$fragmentShader,
+				_ajlende$elm_webgl_slides$Setup$mesh,
+				{}),
+			_1: {ctor: '[]'}
+		}));
+
 var _elm_lang$mouse$Mouse_ops = _elm_lang$mouse$Mouse_ops || {};
 _elm_lang$mouse$Mouse_ops['&>'] = F2(
 	function (t1, t2) {
@@ -13609,6 +13651,10 @@ if (typeof _ajlende$elm_webgl_slides$Controls$main !== 'undefined') {
 Elm['Cube'] = Elm['Cube'] || {};
 if (typeof _ajlende$elm_webgl_slides$Cube$main !== 'undefined') {
     _ajlende$elm_webgl_slides$Cube$main(Elm['Cube'], 'Cube', undefined);
+}
+Elm['Setup'] = Elm['Setup'] || {};
+if (typeof _ajlende$elm_webgl_slides$Setup$main !== 'undefined') {
+    _ajlende$elm_webgl_slides$Setup$main(Elm['Setup'], 'Setup', undefined);
 }
 Elm['Textured'] = Elm['Textured'] || {};
 if (typeof _ajlende$elm_webgl_slides$Textured$main !== 'undefined') {

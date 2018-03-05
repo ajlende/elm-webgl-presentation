@@ -64,6 +64,10 @@ body {
     max-width: 90%;
     position: relative;
     margin: 20px auto; }
+    .reveal .demo canvas {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
   .reveal .group > * {
     display: inline-block !important;
     vertical-align: middle !important; }

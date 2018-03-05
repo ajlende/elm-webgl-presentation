@@ -1,4 +1,4 @@
-(function () {
+{
     const addSection = (name, id) => {
         const newSection = document.createElement('section')
 
@@ -17,13 +17,13 @@
         return newSection
     }
 
-    const initElm = () => {
-        window.ElmApps = {};
+    const initExamples = () => {
         Object.keys(Elm).forEach((key) => {
             const id = `elm-${key.toLowerCase()}`
             const app = document.getElementById(id) || addSection(key, id)
             Elm[key].embed(app)
         })
+        drawJS()
     }
 
     const initHighlight = () => hljs.initHighlightingOnLoad()
@@ -32,9 +32,9 @@
         jax: ['input/TeX', 'output/SVG', 'output/PreviewHTML'],
         extensions: ['tex2jax.js', 'MathMenu.js', 'MathZoom.js', 'fast-preview.js', 'AssistiveMML.js', 'a11y/accessibility-menu.js'],
         TeX: {
-            extensions: ['AMSmath.js', 'AMSsymbols.js', 'noErrors.js', 'noUndefined.js', 'color.js']
-        }
-    };
+            extensions: ['AMSmath.js', 'AMSsymbols.js', 'noErrors.js', 'noUndefined.js', 'color.js'],
+        },
+    }
 
     Reveal.initialize({
         math: {
@@ -45,9 +45,9 @@
         dependencies: [
             { src: 'reveal.js/plugin/math/math.js', async: true },
             { src: 'reveal.js/plugin/markdown/marked.js' },
-            { src: 'reveal.js/plugin/markdown/markdown.js', callback: initElm },
+            { src: 'reveal.js/plugin/markdown/markdown.js', callback: initExamples },
             { src: 'reveal.js/plugin/notes/notes.js', async: true },
             { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: initHighlight },
         ],
     })
-}());
+}

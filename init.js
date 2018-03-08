@@ -37,6 +37,7 @@
     }
 
     Reveal.initialize({
+        history: true,
         math: {
             // See http://docs.mathjax.org/en/latest/config-files.html
             mathjax: 'reveal.js/lib/js/MathJax/MathJax.js',

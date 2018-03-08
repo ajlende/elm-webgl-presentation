@@ -1,5 +1,13 @@
 ## Goals
 
+Notes:
+
+Quick list:
+- Elm Fundamentals
+- Core Computer Graphics Concepts
+- GLSL Fundamentals
+- Resources & Further Learning
+
 ---
 
 
@@ -46,7 +54,7 @@ Understand basic GLSL/WebGL concepts
 ---
 
 
-### Resources for Learning More
+### Resources & Further Learning
 
 Notes:
 

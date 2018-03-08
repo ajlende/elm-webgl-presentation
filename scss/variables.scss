@@ -72,4 +72,6 @@ $family-title: "Raleway", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto
 $family-body: "Open Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
 // Typography
-$family-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+@import url('https://fonts.googleapis.com/css?family=Cousine:400,400i');
+
+$family-monospace: "Cousine", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;

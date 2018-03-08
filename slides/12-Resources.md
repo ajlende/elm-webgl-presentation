@@ -7,7 +7,7 @@ Notes:
 
 ### Computer Graphics
 
-- [graphics.stanford.edu/courses/cs248-02/History-of-graphics/History-of-graphics.pdf](https://graphics.stanford.edu/courses/cs248-02/History-of-graphics/History-of-graphics.pdf) 
+- [graphics.stanford.edu/courses/cs248-02/History-of-graphics/History-of-graphics.pdf](https://graphics.stanford.edu/courses/cs248-02/History-of-graphics/History-of-graphics.pdf)
 
 Notes:
 
@@ -16,8 +16,8 @@ Notes:
 
 ### OpenGL/WebGL
 
-- [learnopengl.com](https://learnopengl.com/) 
-- [www.khronos.org/opengl/wiki](https://www.khronos.org/opengl/wiki) 
+- [learnopengl.com](https://learnopengl.com/)
+- [www.khronos.org/opengl/wiki](https://www.khronos.org/opengl/wiki)
 
 Notes:
 
@@ -26,7 +26,7 @@ Notes:
 
 ### Shaders
 
-- [developer.nvidia.com/gpugems/GPUGems/gpugems_pref01.html](https://developer.nvidia.com/gpugems/GPUGems/gpugems_pref01.html) 
+- [developer.nvidia.com/gpugems/GPUGems/gpugems_pref01.html](https://developer.nvidia.com/gpugems/GPUGems/gpugems_pref01.html)
 
 Notes:
 
@@ -35,7 +35,8 @@ Notes:
 
 ### Elm WebGL
 
-- [medium.com/@nithstong/2d-colored-triangle-in-elm-with-webgl-2a9b2734ce77](https://medium.com/@nithstong/2d-colored-triangle-in-elm-with-webgl-2a9b2734ce77) 
+- [medium.com/@nithstong/2d-colored-triangle-in-elm-with-webgl-2a9b2734ce77](https://medium.com/@nithstong/2d-colored-triangle-in-elm-with-webgl-2a9b2734ce77)
+- [github.com/elm-community/webgl/issues/7](https://github.com/elm-community/webgl/issues/7)
 
 Notes:
 

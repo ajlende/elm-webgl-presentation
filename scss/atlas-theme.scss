@@ -31,6 +31,10 @@ body {
             background: rgba(255, 255, 255, 0.12);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
         }
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
     }
 
     .group > * {
@@ -208,7 +212,7 @@ body {
         margin: auto;
         border-collapse: collapse;
         border-spacing: 0;
-        font-size: 0.5em;
+        font-size: 0.7em;
     }
 
     table th {

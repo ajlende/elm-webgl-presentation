@@ -127,7 +127,7 @@ Notes:
 
 ---
 
-<div class="demo" id="elm-setup"></div>
+<div class="demo elm-setup"></div>
 
 ---
 

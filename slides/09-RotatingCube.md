@@ -193,7 +193,6 @@ Notes:
 
 ---
 
-<div class="demo" id="elm-cube"></div>
+<div class="demo elm-cube"></div>
 
 Notes:
-

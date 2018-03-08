@@ -1,12 +1,12 @@
 {
-    const addSection = (name, id) => {
+    const addSection = (name, className) => {
         const newSection = document.createElement('section')
 
         const heading = document.createElement('h2')
         heading.innerHTML = name
 
         const app = document.createElement('div')
-        app.id = id
+        app.className = `demo ${className}`
 
         const lastSlide = document.querySelector('.slides:last-of-type')
         lastSlide.appendChild(newSection)
@@ -19,9 +19,13 @@
 
     const initExamples = () => {
         Object.keys(Elm).forEach((key) => {
-            const id = `elm-${key.toLowerCase()}`
-            const app = document.getElementById(id) || addSection(key, id)
-            Elm[key].embed(app)
+            const name = `elm-${key.toLowerCase()}`
+            addSection(key, name)
+
+            const apps = document.getElementsByClassName(name)
+            Array.from(apps).forEach((app) => {
+                Elm[key].embed(app)
+            })
         })
         drawJS()
     }

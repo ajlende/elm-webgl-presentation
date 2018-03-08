@@ -43,7 +43,9 @@ Enforced semantic versioning removes surprises in minor and patch releases
 ---
 
 
-### Why Elm for WebGL?
+### Why Elm?
+
+[elm-community/webgl](http://package.elm-lang.org/packages/elm-community/webgl/latest)
 
 - Easy to lean
 - Less boilerplate

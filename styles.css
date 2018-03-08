@@ -71,6 +71,9 @@ body {
       padding: 1rem;
       background: rgba(255, 255, 255, 0.12);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+    .reveal .demo canvas {
+      max-width: 100%;
+      max-height: 100%; }
   .reveal .group > * {
     display: inline-block !important;
     vertical-align: middle !important; }
@@ -181,7 +184,7 @@ body {
     margin: auto;
     border-collapse: collapse;
     border-spacing: 0;
-    font-size: 0.5em; }
+    font-size: 0.7em; }
   .reveal table th {
     font-weight: bold; }
   .reveal table th,

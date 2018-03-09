@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>Elm WebGL Examples</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Raleway");
+
+        html {
+            box-sizing: border-box;
+            background-image: linear-gradient(141deg, #ddd9c5 0%, #eeeee7 71%, #f8f9f6 100%);
+            font-size: 16px;
+            color: #073746;
+        }
+
+        body {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            margin: 0 0 20px 0;
+            font-family: "Raleway", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+            font-weight: normal;
+            line-height: 1.2;
+            text-transform: none;
+            text-shadow: none;
+            word-wrap: break-word;
+        }
+
+        h1 { font-size: 3.77em; }
+
+        h2 { font-size: 2.11em; }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-gap: 20px;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15) !important;
+            padding: 20px;
+            display: flex;
+            align-content: flex-start;
+            flex-direction: column;
+        }
+
+        section div,
+        section canvas {
+            position: relative;
+            width: 100%;
+            max-height: 100%;
+
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Elm WebGL Examples</h1></header>
+    <main></main>
+    <script src="elm.js"></script>
+    <script>
+        var apps = Object.keys(Elm).map((key) => {
+            const section = document.createElement('section')
+            section.id = key.toLowerCase()
+
+            const container = document.createElement('div')
+
+            const heading = document.createElement('h2')
+            heading.innerHTML = `${key}.elm`
+
+            const main = document.querySelector('main')
+            main.appendChild(section)
+
+            section.appendChild(heading)
+            section.appendChild(container)
+
+            return Elm[key].embed(container)
+        })
+    </script>
+</body>
+</html>

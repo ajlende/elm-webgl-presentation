@@ -1,31 +1,9 @@
 {
-    const addSection = (name, className) => {
-        const newSection = document.createElement('section')
-
-        const heading = document.createElement('h2')
-        heading.innerHTML = name
-
-        const app = document.createElement('div')
-        app.className = `demo ${className}`
-
-        const lastSlide = document.querySelector('.slides:last-of-type')
-        lastSlide.appendChild(newSection)
-
-        newSection.appendChild(heading)
-        newSection.appendChild(app)
-
-        return newSection
-    }
-
     const initExamples = () => {
         Object.keys(Elm).forEach((key) => {
             const name = `elm-${key.toLowerCase()}`
-            addSection(key, name)
-
             const apps = document.getElementsByClassName(name)
-            Array.from(apps).forEach((app) => {
-                Elm[key].embed(app)
-            })
+            Array.from(apps).forEach(app => Elm[key].embed(app))
         })
         drawJS()
     }

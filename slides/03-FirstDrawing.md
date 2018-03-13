@@ -45,6 +45,82 @@ module Main exposing (main)
 
 Notes:
 
+Ellie link shows the completed program for this example. Click `new` on Ellie if you want to follow along.
+
+Basic setup in Ellie shows `Main.elm` at the top and `index.html` at the bottom. We're not going to touch the HTML.
+
+Add dependencies:
+- elm-community/webgl
+- elm-community/linear-algebra
+- elm-lang/animation-frame (won't be used for the first two examples, but we'll use it later)
+
+---
+
+
+### Main
+
+```elm
+import WebGL exposing (entity, toHtml)
+import Html.Attributes exposing (height, width)
+
+main =
+    toHtml
+        [ width 400, height 400 ]
+        [ entity vertexShader fragmentShader mesh {} ]
+```
+
+Notes:
+
+
+Functions look weird in elm cause they don't have parenthesis or commas. (Optional parenthesis go around the function name too)
+
+```elm
+WebGL.toHtml
+    : List (Attribute msg) -- canvas attributes
+    -> List Entity         -- scene
+    -> Html msg            -- <canvas />
+```
+
+```elm
+WebGL.entity
+    :  Shader attributes uniforms varyings -- Vertex Shader
+    -> Shader {  } uniforms varyings       -- Fragment Shader
+    -> Mesh attributes                     -- Mesh
+    -> uniforms                            -- Uniforms (for now "empty object")
+    -> Entity                              -- Entity
+```
+
+---
+
+
+### Mesh
+
+```elm
+import WebGL exposing (..., triangles)
+import Math.Vector2 exposing (vec2)
+
+mesh =
+    triangles
+        [ ( { position = vec2 0 1 }
+          , { position = vec2 0 0 }
+          , { position = vec2 1 0 }
+          )
+        ]
+```
+
+Notes:
+
+Just creating the points of a triangle with corners at (0, 1), (0, 0), and (1, 0)
+
+```elm
+triangles
+    : List (attributes, attributes, attributes) -- List of triples representing 
+    -> Mesh attributes -- Mesh                     the corners of a triangle
+```
+
+```elm
+vec2 : Float -> Float -> Vec2 -- (x, y) coordinates kinda like a tuple of Floats
+```
 
 ---
 
@@ -66,6 +142,11 @@ vertexShader =
 
 Notes:
 
+GLSL block of actual GLSL code. Looks a lot like C. This is the code that runs in the GPU.
+
+`position` is from the mesh. Vertex shader runs once for each vertex of the mesh.
+
+`gl_Position` is a built-in `out` vairable if you're familiar with C++. `(x, y, z, w)` (w is used for scaling/perspectives)
 
 ---
 
@@ -85,45 +166,9 @@ fragmentShader =
 
 Notes:
 
+Fragment shader runs once for each "fragment", or pixel of the screen, so you usually want this to be fast.
 
----
-
-
-### Mesh
-
-```elm
-import WebGL exposing (triangles)
-import Math.Vector2 exposing (vec2)
-
-mesh =
-    triangles
-        [ ( { position = vec2 0 1 }
-          , { position = vec2 0 0 }
-          , { position = vec2 1 0 }
-          )
-        ]
-```
-
-Notes:
-
-
----
-
-
-### Main
-
-```elm
-import WebGL exposing (entity, triangles, toHtml)
-import Html.Attributes exposing (height, width)
-
-main =
-    toHtml
-        [ width 400, height 400 ]
-        [ entity vertexShader fragmentShader mesh {} ]
-```
-
-Notes:
-
+`gl_FragColor` is a built-in `out` vairable for the color of each pixel to be drawn.
 
 ---
 
@@ -241,4 +286,7 @@ Tools like three.js mitigate this, but if you're interested in lower-level graph
 
 Notes:
 
-And that's basically how you get into game development. (Joke)
+Step 1: Draw a triangle
+Step 2: Draw the rest of the game
+
+After all, the drawings for almost all games are just a collection of triangles. (Joke)

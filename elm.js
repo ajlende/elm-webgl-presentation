@@ -12944,19 +12944,134 @@ var _elm_lang$core$Color$Linear = F3(
 	});
 var _elm_lang$core$Color$linear = _elm_lang$core$Color$Linear;
 
-var _ajlende$elm_webgl_slides$Cube$fragmentShader = {'src': '\n\n        precision mediump float;\n        uniform float shade;\n        varying vec3 vcolor;\n        void main () {\n            gl_FragColor = shade * vec4(vcolor, 1.0);\n        }\n\n    '};
-var _ajlende$elm_webgl_slides$Cube$vertexShader = {'src': '\n\n        attribute vec3 position;\n        attribute vec3 color;\n        uniform mat4 perspective;\n        uniform mat4 camera;\n        uniform mat4 rotation;\n        varying vec3 vcolor;\n        void main () {\n            gl_Position = perspective * camera * rotation * vec4(position, 1.0);\n            vcolor = color;\n        }\n\n    '};
-var _ajlende$elm_webgl_slides$Cube$uniforms = function (theta) {
+var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
+var _elm_lang$html$Html_Events$targetChecked = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'checked',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$bool);
+var _elm_lang$html$Html_Events$targetValue = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'value',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$string);
+var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
+var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+var _elm_lang$html$Html_Events$onFocus = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'focus',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onBlur = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'blur',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
+	_elm_lang$html$Html_Events$defaultOptions,
+	{preventDefault: true});
+var _elm_lang$html$Html_Events$onSubmit = function (msg) {
+	return A3(
+		_elm_lang$html$Html_Events$onWithOptions,
+		'submit',
+		_elm_lang$html$Html_Events$onSubmitOptions,
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onCheck = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'change',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
+};
+var _elm_lang$html$Html_Events$onInput = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'input',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
+};
+var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseout',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseover',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseleave',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseenter',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseup',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mousedown',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'dblclick',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'click',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$Options = F2(
+	function (a, b) {
+		return {stopPropagation: a, preventDefault: b};
+	});
+
+var _ajlende$elm_webgl_slides$Cube$fragmentShader = {'src': '\n\n        precision mediump float;\n\n        uniform float brightness;\n\n        varying vec3 vcolor;\n\n        void main () {\n            gl_FragColor = vec4(brightness * vcolor, 1.0);\n        }\n\n    '};
+var _ajlende$elm_webgl_slides$Cube$vertexShader = {'src': '\n\n        attribute vec3 position;\n        attribute vec3 color;\n\n        uniform mat4 perspective;\n        uniform mat4 camera;\n        uniform mat4 rotation;\n\n        varying vec3 vcolor;\n\n        void main () {\n            vcolor = color;\n            gl_Position = perspective * camera * rotation * vec4(position, 1.0);\n        }\n\n    '};
+var _ajlende$elm_webgl_slides$Cube$uniforms = function (model) {
 	return {
 		rotation: A2(
 			_elm_community$linear_algebra$Math_Matrix4$mul,
 			A2(
 				_elm_community$linear_algebra$Math_Matrix4$makeRotate,
-				3 * theta,
+				3 * model.theta,
 				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 1, 0)),
 			A2(
 				_elm_community$linear_algebra$Math_Matrix4$makeRotate,
-				2 * theta,
+				2 * model.theta,
 				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 1, 0, 0))),
 		perspective: A4(_elm_community$linear_algebra$Math_Matrix4$makePerspective, 45, 1, 1.0e-2, 100),
 		camera: A3(
@@ -12964,29 +13079,58 @@ var _ajlende$elm_webgl_slides$Cube$uniforms = function (theta) {
 			A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 0, 5),
 			A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 0, 0),
 			A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 1, 0)),
-		shade: 0.8
+		brightness: model.toggle ? 0.8 : 0.2
 	};
 };
-var _ajlende$elm_webgl_slides$Cube$Uniforms = F4(
-	function (a, b, c, d) {
-		return {rotation: a, perspective: b, camera: c, shade: d};
+var _ajlende$elm_webgl_slides$Cube$colorToVec3 = function (rawColor) {
+	var c = _elm_lang$core$Color$toRgb(rawColor);
+	return A3(
+		_elm_community$linear_algebra$Math_Vector3$vec3,
+		_elm_lang$core$Basics$toFloat(c.red) / 255,
+		_elm_lang$core$Basics$toFloat(c.green) / 255,
+		_elm_lang$core$Basics$toFloat(c.blue) / 255);
+};
+var _ajlende$elm_webgl_slides$Cube$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		if (_p0.ctor === 'Toggle') {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{toggle: !model.toggle}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		} else {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{theta: model.theta + (_p0._0 / 5000)}),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		}
 	});
-var _ajlende$elm_webgl_slides$Cube$Vertex = F2(
+var _ajlende$elm_webgl_slides$Cube$init = {
+	ctor: '_Tuple2',
+	_0: {toggle: false, theta: 0},
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _ajlende$elm_webgl_slides$Cube$Model = F2(
 	function (a, b) {
-		return {color: a, position: b};
+		return {toggle: a, theta: b};
+	});
+var _ajlende$elm_webgl_slides$Cube$Attributes = F2(
+	function (a, b) {
+		return {position: a, color: b};
 	});
 var _ajlende$elm_webgl_slides$Cube$face = F5(
 	function (rawColor, a, b, c, d) {
-		var color = function () {
-			var c = _elm_lang$core$Color$toRgb(rawColor);
-			return A3(
-				_elm_community$linear_algebra$Math_Vector3$vec3,
-				_elm_lang$core$Basics$toFloat(c.red) / 255,
-				_elm_lang$core$Basics$toFloat(c.green) / 255,
-				_elm_lang$core$Basics$toFloat(c.blue) / 255);
-		}();
 		var vertex = function (position) {
-			return A2(_ajlende$elm_webgl_slides$Cube$Vertex, color, position);
+			return A2(
+				_ajlende$elm_webgl_slides$Cube$Attributes,
+				position,
+				_ajlende$elm_webgl_slides$Cube$colorToVec3(rawColor));
 		};
 		return {
 			ctor: '::',
@@ -13008,7 +13152,7 @@ var _ajlende$elm_webgl_slides$Cube$face = F5(
 			}
 		};
 	});
-var _ajlende$elm_webgl_slides$Cube$cubeMesh = function () {
+var _ajlende$elm_webgl_slides$Cube$mesh = function () {
 	var lbb = A3(_elm_community$linear_algebra$Math_Vector3$vec3, -1, -1, -1);
 	var lfb = A3(_elm_community$linear_algebra$Math_Vector3$vec3, -1, 1, -1);
 	var rfb = A3(_elm_community$linear_algebra$Math_Vector3$vec3, 1, 1, -1);
@@ -13045,8 +13189,108 @@ var _ajlende$elm_webgl_slides$Cube$cubeMesh = function () {
 				}
 			}));
 }();
-var _ajlende$elm_webgl_slides$Cube$view = function (theta) {
+var _ajlende$elm_webgl_slides$Cube$Uniforms = F4(
+	function (a, b, c, d) {
+		return {brightness: a, perspective: b, camera: c, rotation: d};
+	});
+var _ajlende$elm_webgl_slides$Cube$Varyings = function (a) {
+	return {vcolor: a};
+};
+var _ajlende$elm_webgl_slides$Cube$Animate = function (a) {
+	return {ctor: 'Animate', _0: a};
+};
+var _ajlende$elm_webgl_slides$Cube$subscriptions = function (_p1) {
+	return _elm_lang$animation_frame$AnimationFrame$diffs(_ajlende$elm_webgl_slides$Cube$Animate);
+};
+var _ajlende$elm_webgl_slides$Cube$Toggle = {ctor: 'Toggle'};
+var _ajlende$elm_webgl_slides$Cube$view = function (model) {
 	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_community$webgl$WebGL$toHtml,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$width(400),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$height(400),
+						_1: {ctor: '[]'}
+					}
+				},
+				{
+					ctor: '::',
+					_0: A4(
+						_elm_community$webgl$WebGL$entity,
+						_ajlende$elm_webgl_slides$Cube$vertexShader,
+						_ajlende$elm_webgl_slides$Cube$fragmentShader,
+						_ajlende$elm_webgl_slides$Cube$mesh,
+						_ajlende$elm_webgl_slides$Cube$uniforms(model)),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$label,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$input,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$type_('checkbox'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(_ajlende$elm_webgl_slides$Cube$Toggle),
+									_1: {ctor: '[]'}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Toggle'),
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _ajlende$elm_webgl_slides$Cube$main = _elm_lang$html$Html$program(
+	{init: _ajlende$elm_webgl_slides$Cube$init, subscriptions: _ajlende$elm_webgl_slides$Cube$subscriptions, view: _ajlende$elm_webgl_slides$Cube$view, update: _ajlende$elm_webgl_slides$Cube$update})();
+
+var _ajlende$elm_webgl_slides$Hello$fragmentShader = {'src': '\n\n        precision mediump float;\n\n        uniform float brightness;\n\n        varying vec3 vcolor;\n\n        void main () {\n            vec3 color = brightness * sqrt(vcolor);\n            gl_FragColor = vec4(color, 1.0);\n        }\n\n    '};
+var _ajlende$elm_webgl_slides$Hello$vertexShader = {'src': '\n\n        attribute vec2 position;\n        attribute vec3 color;\n\n        varying vec3 vcolor;\n\n        void main () {\n            vcolor = color * color;\n            gl_Position = vec4(position, 0.0, 1.0);\n        }\n\n    '};
+var _ajlende$elm_webgl_slides$Hello$uniforms = {brightness: 0.5};
+var _ajlende$elm_webgl_slides$Hello$Attributes = F2(
+	function (a, b) {
+		return {position: a, color: b};
+	});
+var _ajlende$elm_webgl_slides$Hello$mesh = _elm_community$webgl$WebGL$triangles(
+	{
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple3',
+			_0: A2(
+				_ajlende$elm_webgl_slides$Hello$Attributes,
+				A2(_elm_community$linear_algebra$Math_Vector2$vec2, -1, 1),
+				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 1, 0, 0)),
+			_1: A2(
+				_ajlende$elm_webgl_slides$Hello$Attributes,
+				A2(_elm_community$linear_algebra$Math_Vector2$vec2, -1, -1),
+				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 1, 0)),
+			_2: A2(
+				_ajlende$elm_webgl_slides$Hello$Attributes,
+				A2(_elm_community$linear_algebra$Math_Vector2$vec2, 1, -1),
+				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 0, 1))
+		},
+		_1: {ctor: '[]'}
+	});
+var _ajlende$elm_webgl_slides$Hello$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
+	A2(
 		_elm_community$webgl$WebGL$toHtml,
 		{
 			ctor: '::',
@@ -13059,27 +13303,15 @@ var _ajlende$elm_webgl_slides$Cube$view = function (theta) {
 		},
 		{
 			ctor: '::',
-			_0: A4(
-				_elm_community$webgl$WebGL$entity,
-				_ajlende$elm_webgl_slides$Cube$vertexShader,
-				_ajlende$elm_webgl_slides$Cube$fragmentShader,
-				_ajlende$elm_webgl_slides$Cube$cubeMesh,
-				_ajlende$elm_webgl_slides$Cube$uniforms(theta)),
+			_0: A4(_elm_community$webgl$WebGL$entity, _ajlende$elm_webgl_slides$Hello$vertexShader, _ajlende$elm_webgl_slides$Hello$fragmentShader, _ajlende$elm_webgl_slides$Hello$mesh, _ajlende$elm_webgl_slides$Hello$uniforms),
 			_1: {ctor: '[]'}
-		});
+		}));
+var _ajlende$elm_webgl_slides$Hello$Uniforms = function (a) {
+	return {brightness: a};
 };
-var _ajlende$elm_webgl_slides$Cube$main = _elm_lang$html$Html$program(
-	{
-		init: {ctor: '_Tuple2', _0: 0, _1: _elm_lang$core$Platform_Cmd$none},
-		view: _ajlende$elm_webgl_slides$Cube$view,
-		subscriptions: function (_p0) {
-			return _elm_lang$animation_frame$AnimationFrame$diffs(_elm_lang$core$Basics$identity);
-		},
-		update: F2(
-			function (dt, theta) {
-				return {ctor: '_Tuple2', _0: theta + (dt / 5000), _1: _elm_lang$core$Platform_Cmd$none};
-			})
-	})();
+var _ajlende$elm_webgl_slides$Hello$Varyings = function (a) {
+	return {vcolor: a};
+};
 
 var _ajlende$elm_webgl_slides$Setup$mesh = _elm_community$webgl$WebGL$triangles(
 	{
@@ -13584,64 +13816,108 @@ var _ajlende$elm_webgl_slides$Textured$init = {
 var _ajlende$elm_webgl_slides$Textured$main = _elm_lang$html$Html$program(
 	{init: _ajlende$elm_webgl_slides$Textured$init, view: _ajlende$elm_webgl_slides$Textured$view, subscriptions: _ajlende$elm_webgl_slides$Textured$subscriptions, update: _ajlende$elm_webgl_slides$Textured$update})();
 
-var _ajlende$elm_webgl_slides$Triangle$fragmentShader = {'src': '\n\n        precision mediump float;\n        varying vec3 vcolor;\n\n        void main () {\n            gl_FragColor = vec4(vcolor, 1.0);\n        }\n\n    '};
-var _ajlende$elm_webgl_slides$Triangle$vertexShader = {'src': '\n\n        attribute vec3 position;\n        attribute vec3 color;\n        varying vec3 vcolor;\n\n        void main () {\n            gl_Position = vec4(position, 1.0);\n            vcolor = color;\n        }\n\n    '};
-var _ajlende$elm_webgl_slides$Triangle$Vertex = F2(
+var _ajlende$elm_webgl_slides$Toggle$fragmentShader = {'src': '\n\n        precision mediump float;\n\n        uniform float brightness;\n\n        varying vec3 vcolor;\n\n        void main () {\n            vec3 color = brightness * sqrt(vcolor);\n            gl_FragColor = vec4(color, 1.0);\n        }\n\n    '};
+var _ajlende$elm_webgl_slides$Toggle$vertexShader = {'src': '\n\n        attribute vec2 position;\n        attribute vec3 color;\n\n        varying vec3 vcolor;\n\n        void main () {\n            vcolor = color * color;\n            gl_Position = vec4(position, 0.0, 1.0);\n        }\n\n    '};
+var _ajlende$elm_webgl_slides$Toggle$uniforms = function (model) {
+	return {
+		brightness: model ? 1 : 0
+	};
+};
+var _ajlende$elm_webgl_slides$Toggle$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return !model;
+	});
+var _ajlende$elm_webgl_slides$Toggle$model = false;
+var _ajlende$elm_webgl_slides$Toggle$Attributes = F2(
 	function (a, b) {
 		return {position: a, color: b};
 	});
-var _ajlende$elm_webgl_slides$Triangle$mesh = _elm_community$webgl$WebGL$triangles(
+var _ajlende$elm_webgl_slides$Toggle$mesh = _elm_community$webgl$WebGL$triangles(
 	{
 		ctor: '::',
 		_0: {
 			ctor: '_Tuple3',
 			_0: A2(
-				_ajlende$elm_webgl_slides$Triangle$Vertex,
-				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 1, 0),
+				_ajlende$elm_webgl_slides$Toggle$Attributes,
+				A2(_elm_community$linear_algebra$Math_Vector2$vec2, -1, 1),
 				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 1, 0, 0)),
 			_1: A2(
-				_ajlende$elm_webgl_slides$Triangle$Vertex,
-				A3(_elm_community$linear_algebra$Math_Vector3$vec3, -1, 0, 0),
+				_ajlende$elm_webgl_slides$Toggle$Attributes,
+				A2(_elm_community$linear_algebra$Math_Vector2$vec2, -1, -1),
 				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 1, 0)),
 			_2: A2(
-				_ajlende$elm_webgl_slides$Triangle$Vertex,
-				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 1, 0, 0),
+				_ajlende$elm_webgl_slides$Toggle$Attributes,
+				A2(_elm_community$linear_algebra$Math_Vector2$vec2, 1, -1),
 				A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 0, 1))
 		},
 		_1: {ctor: '[]'}
 	});
-var _ajlende$elm_webgl_slides$Triangle$view = function (_p0) {
+var _ajlende$elm_webgl_slides$Toggle$Uniforms = function (a) {
+	return {brightness: a};
+};
+var _ajlende$elm_webgl_slides$Toggle$Varyings = function (a) {
+	return {vcolor: a};
+};
+var _ajlende$elm_webgl_slides$Toggle$Toggle = {ctor: 'Toggle'};
+var _ajlende$elm_webgl_slides$Toggle$view = function (model) {
 	return A2(
-		_elm_community$webgl$WebGL$toHtml,
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$width(400),
+			_0: A2(
+				_elm_community$webgl$WebGL$toHtml,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$width(400),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$height(400),
+						_1: {ctor: '[]'}
+					}
+				},
+				{
+					ctor: '::',
+					_0: A4(
+						_elm_community$webgl$WebGL$entity,
+						_ajlende$elm_webgl_slides$Toggle$vertexShader,
+						_ajlende$elm_webgl_slides$Toggle$fragmentShader,
+						_ajlende$elm_webgl_slides$Toggle$mesh,
+						_ajlende$elm_webgl_slides$Toggle$uniforms(model)),
+					_1: {ctor: '[]'}
+				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$height(400),
+				_0: A2(
+					_elm_lang$html$Html$label,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$input,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$type_('checkbox'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(_ajlende$elm_webgl_slides$Toggle$Toggle),
+									_1: {ctor: '[]'}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Toggle'),
+							_1: {ctor: '[]'}
+						}
+					}),
 				_1: {ctor: '[]'}
 			}
-		},
-		{
-			ctor: '::',
-			_0: A4(
-				_elm_community$webgl$WebGL$entity,
-				_ajlende$elm_webgl_slides$Triangle$vertexShader,
-				_ajlende$elm_webgl_slides$Triangle$fragmentShader,
-				_ajlende$elm_webgl_slides$Triangle$mesh,
-				{}),
-			_1: {ctor: '[]'}
 		});
 };
-var _ajlende$elm_webgl_slides$Triangle$main = _elm_lang$html$Html$beginnerProgram(
-	{
-		model: {},
-		view: _ajlende$elm_webgl_slides$Triangle$view,
-		update: F2(
-			function (_p2, _p1) {
-				return {};
-			})
-	})();
+var _ajlende$elm_webgl_slides$Toggle$main = _elm_lang$html$Html$beginnerProgram(
+	{model: _ajlende$elm_webgl_slides$Toggle$model, view: _ajlende$elm_webgl_slides$Toggle$view, update: _ajlende$elm_webgl_slides$Toggle$update})();
 
 var Elm = {};
 Elm['Controls'] = Elm['Controls'] || {};
@@ -13652,6 +13928,10 @@ Elm['Cube'] = Elm['Cube'] || {};
 if (typeof _ajlende$elm_webgl_slides$Cube$main !== 'undefined') {
     _ajlende$elm_webgl_slides$Cube$main(Elm['Cube'], 'Cube', undefined);
 }
+Elm['Hello'] = Elm['Hello'] || {};
+if (typeof _ajlende$elm_webgl_slides$Hello$main !== 'undefined') {
+    _ajlende$elm_webgl_slides$Hello$main(Elm['Hello'], 'Hello', undefined);
+}
 Elm['Setup'] = Elm['Setup'] || {};
 if (typeof _ajlende$elm_webgl_slides$Setup$main !== 'undefined') {
     _ajlende$elm_webgl_slides$Setup$main(Elm['Setup'], 'Setup', undefined);
@@ -13660,9 +13940,9 @@ Elm['Textured'] = Elm['Textured'] || {};
 if (typeof _ajlende$elm_webgl_slides$Textured$main !== 'undefined') {
     _ajlende$elm_webgl_slides$Textured$main(Elm['Textured'], 'Textured', undefined);
 }
-Elm['Triangle'] = Elm['Triangle'] || {};
-if (typeof _ajlende$elm_webgl_slides$Triangle$main !== 'undefined') {
-    _ajlende$elm_webgl_slides$Triangle$main(Elm['Triangle'], 'Triangle', undefined);
+Elm['Toggle'] = Elm['Toggle'] || {};
+if (typeof _ajlende$elm_webgl_slides$Toggle$main !== 'undefined') {
+    _ajlende$elm_webgl_slides$Toggle$main(Elm['Toggle'], 'Toggle', undefined);
 }
 
 if (typeof define === "function" && define['amd'])

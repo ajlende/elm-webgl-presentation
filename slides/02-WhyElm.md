@@ -55,6 +55,8 @@ Enforced semantic versioning removes surprises in minor and patch releases
 
 Notes:
 
-Specifically, why Elm for WebGL
+A lesser known feature of Elm is first-class support for GLSL, the OpenGL Shading Language.
 
-Now it's time to mention that it's a functional programming language
+Elm takes care of a lot of the WebGL boilerplate code.
+
+GLSL is embedded directly in Elm code for type checking.

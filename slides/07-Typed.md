@@ -1,27 +1,38 @@
-## Typed
+## Toggling and Types
 
 [View on Ellie](https://ellie-app.com/)
 
 Notes:
 
-TODO: Add types to Hello World Triangle example
+---
+
+
+### Imports
+
+```elm
+import Html exposing (Html, div, input, label, text)
+import Html.Attributes exposing (width, height, type_)
+import Html.Events exposing (onClick)
+import Math.Vector2 as Vec2 exposing (vec2, Vec2)
+import Math.Vector3 as Vec3 exposing (vec3, Vec3)
+import WebGL exposing (Mesh, Shader, toHtml, entity, triangles)
+```
+
+Notes:
+
 
 ---
 
-### Import & Main
+
+### Main
 
 ```elm
-import Html exposing (Html)
-import Html.Attributes exposing (width, height, style)
-import Math.Vector3 as Vec3 exposing (vec3, Vec3) --
-import WebGL exposing (Mesh, Shader)
-
-main : Program Never {} {}
+main : Program Never Model Msg
 main =
     Html.beginnerProgram
-        { model = {}
+        { model = model
         , view = view
-        , update = (\_ _ -> {})
+        , update = update
         }
 ```
 
@@ -29,19 +40,37 @@ Notes:
 
 
 ---
+
+
+### Model
+
+```elm
+type alias Model = Bool
+
+model : Model
+model = False
+```
+
+Notes:
+
+
+---
+
 
 ### View
 
 ```elm
-view : {} -> Html msg
-view _ =
-    WebGL.toHtml
-        [ width 400, height 400 ]
-        [ WebGL.entity
-            vertexShader
-            fragmentShader
-            mesh
-            {}
+type Msg = Toggle
+
+view : Model -> Html Msg
+view model =
+    div []
+        [ toHtml [ width 400, height 400 ]
+            [ entity vertexShader fragmentShader mesh (uniforms model) ]
+        , label []
+            [ input [ type_ "checkbox", onClick Toggle ] []
+            , text "Toggle"
+            ]
         ]
 ```
 
@@ -49,22 +78,39 @@ Notes:
 
 
 ---
+
+
+### Update
+
+```elm
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        Toggle ->
+            not model
+```
+
+Notes:
+
+
+---
+
 
 ### Mesh
 
 ```elm
-type alias Vertex =
-    { position : Vec3
+type alias Attributes =
+    { position : Vec2
     , color : Vec3
     }
 
-mesh : Mesh Vertex
+mesh : Mesh Attributes
 mesh =
-    WebGL.triangles
-        [ ( Vertex (vec3 0 1 0) (vec3 1 0 0)
-            , Vertex (vec3 -1 0 0) (vec3 0 1 0)
-            , Vertex (vec3 1 0 0) (vec3 0 0 1)
-            )
+    triangles
+        [ ( Attributes (vec2 -1 1) (vec3 1 0 0)
+          , Attributes (vec2 -1 -1) (vec3 0 1 0)
+          , Attributes (vec2 1 -1) (vec3 0 0 1)
+          )
         ]
 ```
 
@@ -73,45 +119,43 @@ Notes:
 
 ---
 
-### Vertex Shader
+
+### Uniforms
 
 ```elm
-vertexShader : Shader Vertex {} { vcolor : Vec3 }
-vertexShader =
-    [glsl|
+type alias Uniforms = { brightness : Float }
 
-        attribute vec3 position;
-        attribute vec3 color;
-        varying vec3 vcolor;
-
-        void main () {
-            gl_Position = vec4(position, 1.0);
-            vcolor = color;
-        }
-
-    |]
+uniforms : Model -> Uniforms
+uniforms model = { brightness = if model then 1 else 0 }
 ```
 
 Notes:
 
 
 ---
+
+
+### Vertex Shader
+
+```elm
+type alias Varyings =
+    { vcolor : Vec3 }
+
+vertexShader : Shader Attributes Uniforms Varyings
+vertexShader = [glsl| ... |]
+```
+
+Notes:
+
+
+---
+
 
 ### Fragment Shader
 
 ```elm
-fragmentShader : Shader {} {} { vcolor : Vec3 }
-fragmentShader =
-    [glsl|
-
-        precision mediump float;
-        varying vec3 vcolor;
-
-        void main () {
-            gl_FragColor = vec4(vcolor, 1.0);
-        }
-
-    |]
+fragmentShader : Shader {} Uniforms Varyings
+fragmentShader = [glsl| ... |]
 ```
 
 Notes:
@@ -119,4 +163,5 @@ Notes:
 
 ---
 
-<div class="demo elm-triangle"></div>
+
+<div class="demo elm-toggle"></div>

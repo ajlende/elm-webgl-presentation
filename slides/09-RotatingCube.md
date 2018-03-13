@@ -1,6 +1,6 @@
 ## Cube Example
 
-[View on Ellie](https://ellie-app.com/7STFkQjmNa1/1)
+[View on Ellie](https://ellie-app.com/4Jv7RHmrta1/17)
 
 Notes:
 

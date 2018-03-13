@@ -1,6 +1,6 @@
 ## Toggling and Types
 
-[View on Ellie](https://ellie-app.com/)
+[View on Ellie](https://ellie-app.com/4Jv7RHmrta1/11)
 
 Notes:
 

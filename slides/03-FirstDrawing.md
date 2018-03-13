@@ -1,6 +1,6 @@
 ## First Drawing
 
-[View on Ellie](https://ellie-app.com/5YkQwmqbRa1/3)
+[View on Ellie](https://ellie-app.com/4Jv7RHmrta1/1)
 
 Notes:
 

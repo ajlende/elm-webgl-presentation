@@ -13063,6 +13063,7 @@ var _ajlende$elm_webgl_slides$Cube$fragmentShader = {'src': '\n\n        precisi
 var _ajlende$elm_webgl_slides$Cube$vertexShader = {'src': '\n\n        attribute vec3 position;\n        attribute vec3 color;\n\n        uniform mat4 perspective;\n        uniform mat4 camera;\n        uniform mat4 rotation;\n\n        varying vec3 vcolor;\n\n        void main () {\n            vcolor = color;\n            gl_Position = perspective * camera * rotation * vec4(position, 1.0);\n        }\n\n    '};
 var _ajlende$elm_webgl_slides$Cube$uniforms = function (model) {
 	return {
+		brightness: model.toggle ? 0.8 : 0.2,
 		rotation: A2(
 			_elm_community$linear_algebra$Math_Matrix4$mul,
 			A2(
@@ -13078,8 +13079,7 @@ var _ajlende$elm_webgl_slides$Cube$uniforms = function (model) {
 			_elm_community$linear_algebra$Math_Matrix4$makeLookAt,
 			A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 0, 5),
 			A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 0, 0),
-			A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 1, 0)),
-		brightness: model.toggle ? 0.8 : 0.2
+			A3(_elm_community$linear_algebra$Math_Vector3$vec3, 0, 1, 0))
 	};
 };
 var _ajlende$elm_webgl_slides$Cube$colorToVec3 = function (rawColor) {
@@ -13312,6 +13312,129 @@ var _ajlende$elm_webgl_slides$Hello$Uniforms = function (a) {
 var _ajlende$elm_webgl_slides$Hello$Varyings = function (a) {
 	return {vcolor: a};
 };
+
+var _ajlende$elm_webgl_slides$Mandelbrot$fragmentShader = {'src': '\n        precision highp float;\n\n        uniform float time;\n        uniform vec2 scale;\n        uniform vec2 coord;\n\n        varying vec2 vuv;\n        \n        vec3 hsl2rgb(vec3 c) {\n            vec3 rgb = clamp(abs(mod(c.x*6.0 + vec3(0.0, 4.0, 2.0), 6.0)-3.0)-1.0, 0.0, 1.0);\n            return c.z + c.y * (rgb-0.5)*(1.0-abs(2.0*c.z-1.0));\n        }\n\n        void main () {\n            vec2 c = coord + (vuv-0.5) * scale;\n            vec2 z = vec2(0.);\n            float iter = 0.0;\n            for (int i = 0; i < 256; i++) {\n                z = vec2(z.x*z.x-z.y*z.y, 2.*z.x*z.y) + c;\n                if (length(z) > 2.) break;\n                iter += 1.;\n            }\n            \n            vec3 color = hsl2rgb(vec3(iter / 24., 1., 0.5));\n            gl_FragColor = vec4(color, 1.);\n        }\n    '};
+var _ajlende$elm_webgl_slides$Mandelbrot$vertexShader = {'src': '\n        attribute vec2 position;\n        attribute vec2 uv;\n\n        varying vec2 vuv;\n\n        void main () {\n            vuv = uv;\n            gl_Position = vec4(position, 0.0, 1.0);\n        }\n    '};
+var _ajlende$elm_webgl_slides$Mandelbrot$uniforms = function (model) {
+	var t = _elm_lang$core$Time$inSeconds(model.time);
+	var s = 1 / ((1000 * Math.pow(
+		_elm_lang$core$Basics$cos((0.1 * t) + _elm_lang$core$Basics$pi) + 1,
+		8)) + 0.25);
+	return {
+		time: t,
+		scale: A2(_elm_community$linear_algebra$Math_Vector2$vec2, s, s),
+		coord: A2(_elm_community$linear_algebra$Math_Vector2$vec2, -0.761579, -8.47595e-2)
+	};
+};
+var _ajlende$elm_webgl_slides$Mandelbrot$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				model,
+				{time: _p0._0}),
+			_1: _elm_lang$core$Platform_Cmd$none
+		};
+	});
+var _ajlende$elm_webgl_slides$Mandelbrot$init = {
+	ctor: '_Tuple2',
+	_0: {
+		time: 0,
+		scale: A2(_elm_community$linear_algebra$Math_Vector2$vec2, 0, 0),
+		coord: A2(_elm_community$linear_algebra$Math_Vector2$vec2, 0, 0)
+	},
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _ajlende$elm_webgl_slides$Mandelbrot$Model = F3(
+	function (a, b, c) {
+		return {time: a, scale: b, coord: c};
+	});
+var _ajlende$elm_webgl_slides$Mandelbrot$Attributes = F2(
+	function (a, b) {
+		return {position: a, uv: b};
+	});
+var _ajlende$elm_webgl_slides$Mandelbrot$mesh = A2(
+	_elm_community$webgl$WebGL$indexedTriangles,
+	{
+		ctor: '::',
+		_0: A2(
+			_ajlende$elm_webgl_slides$Mandelbrot$Attributes,
+			A2(_elm_community$linear_algebra$Math_Vector2$vec2, -1, 1),
+			A2(_elm_community$linear_algebra$Math_Vector2$vec2, 0, 0)),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_ajlende$elm_webgl_slides$Mandelbrot$Attributes,
+				A2(_elm_community$linear_algebra$Math_Vector2$vec2, -1, -1),
+				A2(_elm_community$linear_algebra$Math_Vector2$vec2, 0, 1)),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_ajlende$elm_webgl_slides$Mandelbrot$Attributes,
+					A2(_elm_community$linear_algebra$Math_Vector2$vec2, 1, -1),
+					A2(_elm_community$linear_algebra$Math_Vector2$vec2, 1, 1)),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_ajlende$elm_webgl_slides$Mandelbrot$Attributes,
+						A2(_elm_community$linear_algebra$Math_Vector2$vec2, 1, 1),
+						A2(_elm_community$linear_algebra$Math_Vector2$vec2, 1, 0)),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	},
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple3', _0: 0, _1: 1, _2: 2},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple3', _0: 0, _1: 2, _2: 3},
+			_1: {ctor: '[]'}
+		}
+	});
+var _ajlende$elm_webgl_slides$Mandelbrot$scene = function (model) {
+	return {
+		ctor: '::',
+		_0: A4(
+			_elm_community$webgl$WebGL$entity,
+			_ajlende$elm_webgl_slides$Mandelbrot$vertexShader,
+			_ajlende$elm_webgl_slides$Mandelbrot$fragmentShader,
+			_ajlende$elm_webgl_slides$Mandelbrot$mesh,
+			_ajlende$elm_webgl_slides$Mandelbrot$uniforms(model)),
+		_1: {ctor: '[]'}
+	};
+};
+var _ajlende$elm_webgl_slides$Mandelbrot$view = function (model) {
+	return A2(
+		_elm_community$webgl$WebGL$toHtml,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$width(400),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$height(400),
+				_1: {ctor: '[]'}
+			}
+		},
+		_ajlende$elm_webgl_slides$Mandelbrot$scene(model));
+};
+var _ajlende$elm_webgl_slides$Mandelbrot$Uniforms = F3(
+	function (a, b, c) {
+		return {time: a, scale: b, coord: c};
+	});
+var _ajlende$elm_webgl_slides$Mandelbrot$Varyings = function (a) {
+	return {vuv: a};
+};
+var _ajlende$elm_webgl_slides$Mandelbrot$Animate = function (a) {
+	return {ctor: 'Animate', _0: a};
+};
+var _ajlende$elm_webgl_slides$Mandelbrot$subscriptions = function (_p1) {
+	return _elm_lang$animation_frame$AnimationFrame$times(_ajlende$elm_webgl_slides$Mandelbrot$Animate);
+};
+var _ajlende$elm_webgl_slides$Mandelbrot$main = _elm_lang$html$Html$program(
+	{init: _ajlende$elm_webgl_slides$Mandelbrot$init, view: _ajlende$elm_webgl_slides$Mandelbrot$view, update: _ajlende$elm_webgl_slides$Mandelbrot$update, subscriptions: _ajlende$elm_webgl_slides$Mandelbrot$subscriptions})();
 
 var _ajlende$elm_webgl_slides$Setup$mesh = _elm_community$webgl$WebGL$triangles(
 	{
@@ -13931,6 +14054,10 @@ if (typeof _ajlende$elm_webgl_slides$Cube$main !== 'undefined') {
 Elm['Hello'] = Elm['Hello'] || {};
 if (typeof _ajlende$elm_webgl_slides$Hello$main !== 'undefined') {
     _ajlende$elm_webgl_slides$Hello$main(Elm['Hello'], 'Hello', undefined);
+}
+Elm['Mandelbrot'] = Elm['Mandelbrot'] || {};
+if (typeof _ajlende$elm_webgl_slides$Mandelbrot$main !== 'undefined') {
+    _ajlende$elm_webgl_slides$Mandelbrot$main(Elm['Mandelbrot'], 'Mandelbrot', undefined);
 }
 Elm['Setup'] = Elm['Setup'] || {};
 if (typeof _ajlende$elm_webgl_slides$Setup$main !== 'undefined') {

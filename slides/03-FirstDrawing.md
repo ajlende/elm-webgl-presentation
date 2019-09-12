@@ -287,7 +287,7 @@ Tools like three.js mitigate this, but if you're interested in lower-level graph
         <a href="https://github.com/zalando/elm-street-404">
             <img
                 alt="Elm Street 404 Game Animation"
-                src="https://github.com/zalando/elm-street-404/blob/master/screen.gif"
+                src="https://raw.githubusercontent.com/zalando/elm-street-404/master/screen.gif"
                 style="width: calc(400px + 2rem); height: calc(400px + 2rem); margin: 0; max-width: 100%; max-height: 100%; object-fit: cover;"
             />
         </a>

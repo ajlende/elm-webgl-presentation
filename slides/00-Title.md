@@ -2,7 +2,7 @@
 
 [Alex Lende](https://github.com/ajlende)
 
-[github.com/ajlende/elm-webgl-presentation](https://github.com/ajlende/elm-webgl-presentation/tree/master)
+[ajlende.com/elm-webgl-presentation](https://github.com/ajlende/elm-webgl-presentation/tree/master)
 
 Notes:
 

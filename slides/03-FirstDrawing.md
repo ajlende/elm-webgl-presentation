@@ -272,6 +272,34 @@ Tools like three.js mitigate this, but if you're interested in lower-level graph
     class="group"
     style="display: grid; grid-auto-flow: column; justify-items: center; align-items: start; grid-template-rows: auto auto; grid-auto-columns: 1fr;"
 >
+    <p class="fragment" data-fragment-index="1">Mogee</p>
+    <div class="fragment" style="margin: 0;" data-fragment-index="1">
+        <a href="https://github.com/w0rm/elm-mogee">
+            <img
+                alt="Mogee Game Animation"
+                src="https://raw.githubusercontent.com/w0rm/elm-mogee/master/mogee.gif"
+                style="width: calc(400px + 2rem); height: calc(400px + 2rem); margin: 0; max-width: 100%; max-height: 100%; object-fit: cover;"
+            />
+        </a>
+    </div>
+    <p class="fragment" data-fragment-index="2">Elm Street 404</p>
+    <div class="fragment" data-fragment-index="2">
+        <a href="https://github.com/zalando/elm-street-404">
+            <img
+                alt="Elm Street 404 Game Animation"
+                src="https://github.com/zalando/elm-street-404/blob/master/screen.gif"
+                style="width: calc(400px + 2rem); height: calc(400px + 2rem); margin: 0; max-width: 100%; max-height: 100%; object-fit: cover;"
+            />
+        </a>
+    </div>
+</div>
+
+---
+
+<div
+    class="group"
+    style="display: grid; grid-auto-flow: column; justify-items: center; align-items: start; grid-template-rows: auto auto; grid-auto-columns: 1fr;"
+>
     <p class="fragment" data-fragment-index="1">1. Draw a triangle</p>
     <div class="fragment demo" style="margin: 0;" data-fragment-index="1" id="js-example"></div>
     <p class="fragment" data-fragment-index="2">2. Draw the rest of the game</p>
